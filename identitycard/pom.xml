@@ -7,15 +7,106 @@
   <version>1.0</version>
   <name>identitycard Maven Webapp</name>
   <url>http://maven.apache.org</url>
+  
+  
   <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
-  </dependencies>
-  <build>
-    <finalName>identitycard</finalName>
-  </build>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>4.1.6.RELEASE</version>
+		</dependency>
+
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib-nodep</artifactId>
+			<version>3.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.35</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>4.3.10.Final</version>
+		</dependency>
+
+		<dependency>
+			<groupId>dom4j</groupId>
+			<artifactId>dom4j</artifactId>
+			<version>1.6.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+			<version>3.2.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.antlr</groupId>
+			<artifactId>antlr</artifactId>
+			<version>3.5.2</version>
+		</dependency>
+
+	</dependencies>
+	<build>
+		<finalName>identitycard</finalName>
+
+		<!-- <outputDirectory>D:/temp/bookstore</outputDirectory> -->
+
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<!-- <groupId>org.apache.maven.plugins</groupId> -->
+					<artifactId>maven-clean-plugin</artifactId>
+					<version>2.6.1</version>
+					<executions>
+						<execution>
+							<id>auto-clean</id>
+							<phase>initialize</phase>
+							<goals>
+								<goal>clean</goal>
+							</goals>
+						</execution>
+					</executions>
+					<!-- <configuration> <filesets> <fileset> <directory>D:/temp/bookstore</directory> 
+						<includes> <include>**/*.tmp</include> <include>**/*.log</include> </includes> 
+						<excludes> <exclude>**/important.log</exclude> <exclude>**/log4j.log</exclude> 
+						</excludes> <followSymlinks>false</followSymlinks> </fileset> </filesets> 
+						<failOnError>false</failOnError> <skip>true</skip> </configuration> -->
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.3</version>
+					<!-- <configuration> <source>1.7</source> <target>1.7</target> <fork>true</fork> 
+						<meminitial>128m</meminitial> <maxmem>1024m</maxmem> <compilerArgs> <arg>-Xlint</arg> 
+						<arg>-J-Duser.language=en_us</arg> </compilerArgs> <executable>C:/Program 
+						Files/Java/jdk1.7.0_71/bin/javac</executable> <compilerVersion>1.7</compilerVersion> 
+						</configuration> -->
+				</plugin>
+
+
+			</plugins>
+		</pluginManagement>
+
+	</build>
 </project>
