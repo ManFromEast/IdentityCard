@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 15, 2015 4:30:01 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="ResidenceAddress" table="residence_address" catalog="test">
+        <id name="identityCardId" type="java.lang.Integer">
+            <column name="IDENTITY_CARD_ID" />
+            <generator class="foreign">
+                <param name="property">identityCard</param>
+            </generator>
+        </id>
+        <one-to-one name="identityCard" class="IdentityCard" constrained="true"></one-to-one>
+        <property name="provinceState" type="string">
+            <column name="PROVINCE_STATE" length="30" not-null="true" />
+        </property>
+        <property name="cityCounty" type="string">
+            <column name="CITY_COUNTY" length="30" not-null="true" />
+        </property>
+        <property name="district" type="string">
+            <column name="DISTRICT" length="30" not-null="true" />
+        </property>
+        <property name="town" type="string">
+            <column name="TOWN" length="30" not-null="true" />
+        </property>
+        <property name="villageStreet" type="string">
+            <column name="VILLAGE_STREET" not-null="true" />
+        </property>
+        <property name="fullAddress" type="string">
+            <column name="FULL_ADDRESS" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 15, 2015 4:30:01 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="IdentityCard" table="identity_card" catalog="test">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="idNumber" type="string">
+            <column name="ID_NUMBER" length="20" not-null="true" unique="true" />
+        </property>
+        <property name="nationality" type="string">
+            <column name="NATIONALITY" not-null="true" />
+        </property>
+        <property name="issuingAuthority" type="string">
+            <column name="ISSUING_AUTHORITY" not-null="true" />
+        </property>
+        <property name="firstname" type="string">
+            <column name="FIRSTNAME" length="50" not-null="true" />
+        </property>
+        <property name="lastname" type="string">
+            <column name="LASTNAME" length="50" not-null="true" />
+        </property>
+        <property name="fullname" type="string">
+            <column name="FULLNAME" length="100" not-null="true" />
+        </property>
+        <property name="gender" type="string">
+            <column name="GENDER" length="5" not-null="true" />
+        </property>
+        <property name="dateOfBirth" type="timestamp">
+            <column name="DATE_OF_BIRTH" length="19" not-null="true" />
+        </property>
+        <property name="creationDate" type="timestamp">
+            <column name="CREATION_DATE" length="19" not-null="true" />
+        </property>
+        <property name="expirationDate" type="timestamp">
+            <column name="EXPIRATION_DATE" length="19" not-null="true" />
+        </property>
+        <one-to-one name="residenceAddress" class="ResidenceAddress"></one-to-one>
+    </class>
+</hibernate-mapping>
