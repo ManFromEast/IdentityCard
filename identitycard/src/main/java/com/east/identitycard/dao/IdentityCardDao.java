@@ -2,7 +2,7 @@ package com.east.identitycard.dao;
 
 import com.east.identitycard.entity.IdentityCard;
 
-public interface IdentityCardDAO {
+public interface IdentityCardDao {
 
 	public void saveIdentityCard(IdentityCard identityCard);
 

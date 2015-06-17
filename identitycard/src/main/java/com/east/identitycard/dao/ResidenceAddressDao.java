@@ -2,7 +2,7 @@ package com.east.identitycard.dao;
 
 import com.east.identitycard.entity.ResidenceAddress;
 
-public interface ResidenceAddressDAO {
+public interface ResidenceAddressDao {
 	
 	public void saveResidenceAddress(ResidenceAddress residenceAddress);
 	
