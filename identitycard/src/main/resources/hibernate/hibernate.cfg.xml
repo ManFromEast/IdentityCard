@@ -14,4 +14,6 @@
         <property name="hibernate.validator.apply_to_ddl">false</property>
       
     </session-factory>
+    
+    
 </hibernate-configuration>

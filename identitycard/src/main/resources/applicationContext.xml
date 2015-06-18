@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- Scans within the base package of the application for @Component classes 
+		to configure as beans -->
+	<!-- <context:component-scan base-package="com.pro.control,com.pro.service.impl,com.pro.dao.hibernate.impl" 
+		/> -->
+
+	<context:property-placeholder location="resources/properties/jdbc.properties" />
+
+	<!-- <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
+		<property name="driverClassName" value="${jdbc.driverClassName}"></property> 
+		<property name="url" value="${jdbc.url}"></property> <property name="username" 
+		value="${jdbc.username}"></property> <property name="password" value="${jdbc.password}"></property> 
+		</bean> -->
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="${jdbc.driverClassName}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+	</bean>
+
+
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.annotation.AnnotationSessionFactoryBean"
+		destroy-method="close">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+                <prop key="hibernate.current_session_context_class">thread</prop>  
+                <prop key="hibernate.hbm2ddl.auto">none</prop>    
+                <prop key="hibernate.show_sql">true</prop>    
+                <prop key="hibernate.format_sql">true</prop>    
+                <prop key="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</prop>    
+                <prop key="hibernate.c3p0.validate">true</prop>  
+                <prop key="hibernate.c3p0.max_size">20</prop>    
+                <prop key="hibernate.c3p0.min_size">5</prop>  
+                <prop key="hibernate.c3p0.timeout">120</prop>    
+                <prop key="hibernate.c3p0.max_statements">100</prop>    
+                <prop key="hibernate.c3p0.idle_test_period">120</prop>    
+                <prop key="hibernate.c3p0.acquire_increment">2</prop>    
+                <prop key="connection.useUnicode">true</prop>   
+                <prop key="connection.characterEncoding">UTF-8</prop>  
+			</props>
+		</property>
+		<!-- auto scan hibernate entity : @Entity annotation -->
+		<property name="packagesToScan" value="com.pro"></property>
+		
+	</bean>
+
+</beans>
